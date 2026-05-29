@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>Zumba treeningute haldur</h1>
+
+  <h2>Lisa uus treening</h2>
+  <form (ngSubmit)="addTraining()">
+    <div>
+      <label>Pealkiri:</label>
+      <input [(ngModel)]="newTraining.title" name="title" required />
+    </div>
+
+    <div>
+      <label>Treener:</label>
+      <input [(ngModel)]="newTraining.instructor" name="instructor" required />
+    </div>
+
+    <div>
+      <label>Kuupäev ja kellaaeg:</label>
+      <input type="datetime-local" [(ngModel)]="newTraining.dateTime" name="dateTime" required />
+    </div>
+
+    <div>
+      <label>Kestus (min):</label>
+      <input type="number" [(ngModel)]="newTraining.durationMinutes" name="durationMinutes" />
+    </div>
+
+    <button type="submit">Lisa</button>
+  </form>
+
+  <h2>Treeningute nimekiri</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Pealkiri</th>
+        <th>Treener</th>
+        <th>Aeg</th>
+        <th>Kestus</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of zumbaTrainings">
+        <td>{{ c.title }}</td>
+        <td>{{ c.instructor }}</td>
+        <td>{{ c.dateTime | date:'short' }}</td>
+        <td>{{ c.durationMinutes }} min</td>
+        <td><button (click)="deleteTraining(c.id)">Kustuta</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
