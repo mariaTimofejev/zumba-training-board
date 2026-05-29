@@ -10,7 +10,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200") // lubame Angulari
 @RestController
-@RequestMapping("/api/zumba-classes")
+@RequestMapping("/api/zumba-trainings")
 public class ZumbaTrainingController {
 
     private final ZumbaTrainingRepository zumbaTrainingRepository;
